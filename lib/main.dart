@@ -22,7 +22,7 @@ abstract class CanWalk {
   void walk();
 }
 
-//1- todo you can extend from one class on the other hand you can use ((with)) key word to use many class functions
+//1- todo you can just extend from one class with ((extends)) key word .on the other hand you can use ((with)) key word to use many class's functions
 class Cat extends CanRun {
   @override
   void run() {
@@ -43,7 +43,8 @@ class Dog with CanRun, CanWalk {
 
   @override
   void sit() {
-    //2- todo implemented function in abstract class cannot called out of class unless use ((super key word)) in child class
+    //2- todo- implemented function in abstract class could not call out of
+    //todo- baseclass unless use ((super key word)) in child class
     super.sit();
     "now you can call sit method in Dog and CanRun class".log();
   }
@@ -59,7 +60,7 @@ abstract class Vehicle{
 class BMW extends Vehicle{
   @override
   void speed(){
-    //3- todo you can force the implementer of abstract class to call super method the abstract methods with ((@mustCallSuper)) notifier
+    //3- todo you can force the implementer of abstract class to call super methods with ((@mustCallSuper)) notifier
     super.speed();
 
   }
