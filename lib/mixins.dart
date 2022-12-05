@@ -5,8 +5,24 @@ extension Log on Object {
   void log() => devtools.log(toString());
 }
 
-void testIt(){
+mixin CanRun {
+  int get speed;
 
+  void run() {
+    'running at the speed of ${speed}'.log();
+  }
+}
+
+class Cat with CanRun {
+  @override
+  int speed = 0;
+}
+
+void testIt() {
+  final cat = Cat();
+  cat.run();
+  cat.speed=20;
+  cat.run();
 }
 
 void main() {
@@ -15,6 +31,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -25,7 +42,9 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
